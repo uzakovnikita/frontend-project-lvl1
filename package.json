@@ -11,12 +11,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@babel/core": "*",
-    "@babel/preset-env": "*",
-    "@babel/cli": "*",
-    "@babel/node": "*"
-  },
+  "dependencies": {},
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -31,9 +26,9 @@
   },
   "homepage": "https://github.com/uzakovnikita/frontend-project-lvl1#readme",
   "devDependencies": {
+    "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
-    "@babel/preset-env": "*",
-    "@babel/cli": "*",
-    "@babel/node": "*"
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1"
   }
 }
