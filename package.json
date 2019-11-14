@@ -1,9 +1,9 @@
 {
   "name": "frontend-project-lvl1uzakovnikita",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
