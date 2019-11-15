@@ -30,7 +30,7 @@ export const games = (counter = 0, name) => {
     if ((answ === 'yes' && quest % 2 === 0 || answ === 'no' && quest % 2 !== 0) && counter < 3) {
         console.log('Correct');
         return games(counter += 1, name);
-    } else if (counter >= 3) {
+    } else if (counter >= 2) {
         console.log(`Congratulations, ${name}!`);
     } else if (quest % 2 == 0 && answ !== 'yes') {
         console.log(`no' is wrong answer ;(. Correct answer was 'yes'. \n
