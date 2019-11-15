@@ -27,7 +27,7 @@ export const games = (counter = 0, name) => {
     quest = getRandom();
     question(quest);
     answ = actual('Your answer: ');
-    if ((answ === 'yes' && quest % 2 === 0 || answ === 'no' && quest % 2 !== 0) && counter < 3) {
+    if ((answ === 'yes' && quest % 2 === 0 || answ === 'no' && quest % 2 !== 0) && counter < 2) {
         console.log('Correct');
         return games(counter += 1, name);
     } else if (counter >= 2) {
