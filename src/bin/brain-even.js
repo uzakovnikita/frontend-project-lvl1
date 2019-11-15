@@ -1,2 +1,8 @@
 #!/usr/bin/env node
-console.log('hello');
+import { personalHello, hello, description, games } from '..';
+
+hello();
+
+description();
+
+games(0, personalHello());
