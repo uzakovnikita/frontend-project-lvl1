@@ -1,8 +1,5 @@
 #!/usr/bin/env node
-import { personalHello, hello, description, games } from '..';
+import * as evenRules from ' ../games/evenRules ';
+import { engine } from ' ../engine ';
 
-hello();
-
-description();
-
-games(0, personalHello());
+engine(evenRules.random, evenRules.rules, evenRules.description);
