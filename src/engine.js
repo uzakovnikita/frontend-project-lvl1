@@ -12,7 +12,7 @@ export const engine = (random, rules, description, counter = 0) => {
     if (answerTrue == answerUser && counter < 2) {
         console.log('Correct!');
         counter += 1;
-        return engine(random, rules, counter);
+        return engine(random, rules, description, counter);
     } else if (answerTrue !== answerUser) {
         console.log(`${answerUser} is wrong answer ;(. Correct answer was ${answerTrue}.`)
     } else if (counter == 2) {

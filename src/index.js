@@ -15,7 +15,8 @@ export const getRandom = () => {
 }
 
 export const question = (x) => {
-    const result = actual(`Question: ${x}`)
+    console.log(`Question: ${x}`)
+    const result = actual('Your answer ');
     return result;
 }
 export const succesfulResult = (name) => {
