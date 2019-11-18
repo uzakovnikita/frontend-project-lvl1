@@ -14,8 +14,6 @@ export const engine = (random, rules, description, counter = 0, nikname) => {
         counter += 1;
         return engine(random, rules, description, counter, nikname);
     } else if (answerTrue != answerUser) {
-        console.log(`${answerUser} answerUser`);
-        console.log(`${answerTrue} answerTrue`);
         console.log(answerTrue == answerUser);
         console.log(`${answerUser} is wrong answer ;(. Correct answer was ${answerTrue}.`)
     } else if (counter == 2) {
