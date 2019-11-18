@@ -23,3 +23,21 @@ export const succesfulResult = (name) => {
     console.log(`Congratulations, ${name}!`);
 }
 
+export const searchOne = (str) => {
+    let result = '';
+    let i = 0;
+    while (str[i] !== ' ') {
+        result += str[i];
+        i += 1;
+    }
+    return result;
+}
+export const searchTwo = (str) => {
+    let i = searchOne(str) + '';
+    i = i.length;
+    let result = '';
+    for (i; i < str.length; i++) {
+        result += str[i];
+    }
+    return +result;
+}
