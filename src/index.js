@@ -11,7 +11,11 @@ export const personalHello = () => {
 }
 
 export const getRandom = () => {
-    return Math.floor(Math.random() * 98) + 2;
+    return Math.floor(Math.random() * 100);
+}
+
+export const getRandomTen = () => {
+    return Math.floor(Math.random() * 10);
 }
 
 export const question = (x) => {
@@ -30,6 +34,22 @@ export const searchOne = (str) => {
         result += str[i];
         i += 1;
     }
+    return +result;
+}
+export const searchNext = (str) => {
+    let start = str + '';
+    let result = '';
+    let i = 0;
+    for (let i; i < start.length; i++) {
+        if (str[i] == ' ') {
+            break;
+        }
+    }
+    i += 1;
+    while (str[i + 1] !== ' ') {
+        result += start[i];
+        i += 1;
+    }
     return result;
 }
 export const searchTwo = (str) => {
@@ -40,4 +60,37 @@ export const searchTwo = (str) => {
         result += str[i];
     }
     return +result;
+}
+export const searchEndOne = (str) => {
+    let start = '' + str;
+    let result = '';
+    for (let i = start.length - 1; i >= 0; i--) {
+        if (str[i - 1] == ' ') {
+            break;
+        }
+        result += str[i];
+    }
+    return result;
+}
+export const searchEndNext = (str) => {
+    let start = str + '';
+    let result = '';
+    let i = start.length - 1;
+    for (i; i > 0; i--) {
+        if (str[i] == ' ') break;
+    }
+    i -= 1;
+    while (str[i - 1] !== ' ') {
+        result += start[i];
+        i -= 1;
+    }
+    return result;
+}
+export const reverse = (str) => {
+    let start = '' + str;
+    let result = '';
+    for (let i = start.length - 1; i >= 0; i--) {
+        result += start[i];
+    }
+    return result;
 }
