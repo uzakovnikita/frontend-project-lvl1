@@ -1,5 +1,3 @@
 #!/usr/bin/env node
-import { personalHello, hello } from '..';
-
-hello();
-personalHello();
+import { brainGames } from '../games/game-brain.js'
+brainGames();

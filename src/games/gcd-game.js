@@ -1,11 +1,12 @@
-import { getRandom, searchOne, searchTwo } from '..';
+import { getRandom, searchOne, searchTwo, wrapper } from '..';
+import { engine } from '../engine';
 
-export const random = () => {
+const random = () => {
     let a = getRandom();
     let b = getRandom();
     return `${a} ${b}`;
 }
-export const rules = (str) => {
+const rules = (str) => {
     let a = searchOne(str);
     let b = searchTwo(str);
 
@@ -18,6 +19,7 @@ export const rules = (str) => {
     }
     return gcd(a, b);
 }
-export const description = () => {
+const description = () => {
     console.log('Find the greatest common divisor of given numbers.');
 }
+export const gcdGames = wrapper(random, rules, description, engine);

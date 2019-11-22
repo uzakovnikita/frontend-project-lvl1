@@ -1,6 +1,7 @@
-import { getRandom, getRandomTen } from '..';
+import { getRandom, getRandomTen, wrapper } from '..';
+import { engine } from '../engine';
 
-export const random = () => {
+const random = () => {
     let a = getRandom();
     let d = getRandom();
     let arr = [];
@@ -24,7 +25,7 @@ export const random = () => {
 
     return result;
 }
-export const rules = (str) => {
+const rules = (str) => {
     let arr = str.split(' ');
     let index = arr.indexOf('..');
     let d = 0;
@@ -38,6 +39,7 @@ export const rules = (str) => {
     }
     return result;
 }
-export const description = () => {
+const description = () => {
     console.log('What number is missing in the progression?');
 }
+export const progressionGames = wrapper(random, rules, description, engine);

@@ -1,6 +1,7 @@
-import { getRandom } from '..';
+import { getRandom, wrapper } from '..';
+import { engine } from '../engine.js'
 
-export const random = () => {
+const random = () => {
     let a = getRandom();
     let b = getRandom();
     let c = getRandom();
@@ -11,10 +12,12 @@ export const random = () => {
     } else a = '*';
     return `${b}${a}${c}`
 }
-export const rules = (a) => {
+const rules = (a) => {
     return eval(a);
 }
 
-export const description = () => {
+const description = () => {
     console.log('What is the result of the expression?');
 }
+export const calcGames = wrapper(random, rules, description, engine);
+

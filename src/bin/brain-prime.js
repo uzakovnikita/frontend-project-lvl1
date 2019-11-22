@@ -1,5 +1,3 @@
 #!/usr/bin/env node
-import * as primeRules from '../games/primeRules.js';
-import { engine } from '../engine.js';
-
-engine(primeRules.random, primeRules.rules, primeRules.description);
+import { primeGames } from '../games/prime-game.js';
+primeGames();

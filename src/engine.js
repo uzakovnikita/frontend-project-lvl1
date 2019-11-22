@@ -1,8 +1,8 @@
-import { hello, succesfulResult, question, personalHello } from "."
+import { succesfulResult, question, personalHello } from "."
 
 export const engine = (random, rules, description, counter = 0, nikname) => {
     if (counter == 0) {
-        hello();
+        console.log('Welcome to the Brain Games!');
         description();
         nikname = personalHello();
     }

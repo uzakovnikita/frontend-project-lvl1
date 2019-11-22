@@ -1,11 +1,11 @@
 import readlineSync from 'readline-sync';
 
-export const hello = () => console.log('Welcome to the Brain Games!');
 
-export const actual = readlineSync.question;
+
+
 
 export const personalHello = () => {
-    const name = actual('May i have you name?');
+    const name = readlineSync.question('May i have you name?');
     console.log(`Hello, ${name}!`);
     return name;
 }
@@ -20,7 +20,7 @@ export const getRandomTen = () => {
 
 export const question = (x) => {
     console.log(`Question: ${x}`)
-    const result = actual('Your answer ');
+    const result = readlineSync.question('Your answer ');
     return result;
 }
 export const succesfulResult = (name) => {
@@ -93,4 +93,13 @@ export const reverse = (str) => {
         result += start[i];
     }
     return result;
+}
+export const wrapper = (random, rules, description, engine) => () => {
+    return engine(random, rules, description);
+}
+export const isEven = (x) => {
+    if (x % 2 === 0) {
+        return true;
+    }
+    return false;
 }
