@@ -1,14 +1,4 @@
-import readlineSync from 'readline-sync';
-
-
-
-
-
-export const personalHello = () => {
-    const name = readlineSync.question('May i have you name?');
-    console.log(`Hello, ${name}!`);
-    return name;
-}
+export { readlineSync } from 'readline-sync';
 
 export const getRandom = () => {
     return Math.floor(Math.random() * 100);
@@ -18,11 +8,10 @@ export const getRandomTen = () => {
     return Math.floor(Math.random() * 10);
 }
 
-export const question = (x) => {
-    console.log(`Question: ${x}`)
-    const result = readlineSync.question('Your answer ');
-    return result;
-}
+// export const question = () => {
+//     const result = readlineSync.question('Your answer ');
+//     return result;
+// }
 export const succesfulResult = (name) => {
     console.log(`Congratulations, ${name}!`);
 }
@@ -96,10 +85,4 @@ export const reverse = (str) => {
 }
 export const wrapper = (random, rules, description, engine) => () => {
     return engine(random, rules, description);
-}
-export const isEven = (x) => {
-    if (x % 2 === 0) {
-        return true;
-    }
-    return false;
 }

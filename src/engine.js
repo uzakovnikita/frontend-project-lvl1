@@ -1,23 +1,25 @@
-import { succesfulResult, question, personalHello } from "."
+import { readlineSync } from '..'
 
-export const engine = (random, rules, description, counter = 0, nikname) => {
+
+export const engine = (random, description, counter = 0, nikname) => () => {
     if (counter == 0) {
         console.log('Welcome to the Brain Games!');
-        description();
-        nikname = personalHello();
+        console.log(description());
+        nikname = readlineSync.question('May i have you name?');
+        console.log(`Hello, ${nikname}!`);
     }
-    let quest = random();
-    let answerUser = question(quest);
-    let answerTrue = rules(quest);
+
+    let answerTrue = random();
+    let answerUser = readlineSync.question('Your answer ')
     if (answerTrue == answerUser && counter < 2) {
         console.log('Correct!');
         counter += 1;
-        return engine(random, rules, description, counter, nikname);
+        return engine(random, description, counter, nikname)();
     } else if (answerTrue != answerUser) {
         console.log(answerTrue == answerUser);
         console.log(`${answerUser} is wrong answer ;(. Correct answer was ${answerTrue}.`)
     } else if (counter == 2) {
-        succesfulResult(nikname);
+        console.log(`Congratulations, ${nikname}!`);
     }
 
 }
