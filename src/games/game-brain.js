@@ -1,5 +1,6 @@
-import { personalHello } from '..';
+var readlineSync = require('readline-sync');
 export const brainGames = () => {
     console.log('Welcome to the Brain Games!');
-    personalHello();
+    const nikname = readlineSync.question('May I have your name? ');
+    console.log(`Hello, ${nikname}`);
 }

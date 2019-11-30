@@ -1,7 +1,26 @@
-import { getRandom, getRandomTen, wrapper } from '..';
+import { getRandom } from '../utils';
 import { engine } from '../engine';
 
-const random = () => {
+export const getRandomTen = () => {
+    return Math.floor(Math.random() * 10);
+}
+
+const progression = (str) => {
+    let arr = str.split(' ');
+    let index = arr.indexOf('..');
+    let d = 0;
+    let result = 0;
+    if (index > (arr.length) / 2) {
+        d = arr[1] - arr[0];
+        result = +arr[0] + d * index;
+    } else {
+        d = arr[9] - arr[8];
+        result = +arr[9] - d * (arr.length - index - 2);
+    }
+    return result;
+}
+
+const generate = () => {
     let a = getRandom();
     let d = getRandom();
     let arr = [];
@@ -23,23 +42,12 @@ const random = () => {
         else result += arr[j] + ` `;
     }
 
-    return result;
+    arr[0] = result;
+    arr[1] = progression(arr[0]);
+    return arr;
 }
-const rules = (str) => {
-    let arr = str.split(' ');
-    let index = arr.indexOf('..');
-    let d = 0;
-    let result = 0;
-    if (index > (arr.length) / 2) {
-        d = arr[1] - arr[0];
-        result = +arr[0] + d * index;
-    } else {
-        d = arr[9] - arr[8];
-        result = +arr[9] - d * (arr.length - index - 2);
-    }
-    return result;
-}
+
 const description = () => {
-    console.log('What number is missing in the progression?');
+    return 'What number is missing in the progression?';
 }
-export const progressionGames = wrapper(random, rules, description, engine);
+export const progressionGames = engine(generate, description);

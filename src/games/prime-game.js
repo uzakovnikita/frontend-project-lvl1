@@ -1,16 +1,19 @@
-import { getRandom, wrapper } from '..';
+import { getRandom } from '../utils';
 import { engine } from '../engine';
 
-const random = () => {
-    return getRandom();
+const generate = () => {
+    let arr = [];
+    arr[0] = getRandom();
+    arr[1] = isPrime(arr[0]);
+    return arr;
 }
-const rules = (x) => {
+const isPrime = (x) => {
     for (let i = 2; i < 10; i++) {
-        if (x % i === 0) return 'yes';
+        if (x % i === 0) return 'no';
     }
-    return 'no';
+    return 'yes';
 }
 const description = () => {
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no"');
+    return 'Answer "yes" if given number is prime. Otherwise answer "no"';
 }
-export const primeGames = wrapper(random, rules, description, engine);
+export const primeGames = engine(generate, description);

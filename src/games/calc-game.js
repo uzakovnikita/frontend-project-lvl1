@@ -1,23 +1,23 @@
-import { getRandom, wrapper } from '..';
-import { engine } from '../engine.js'
+import { getRandom } from '../utils';
+import { engine } from '../engine.js';
 
-const random = () => {
+const generate = () => {
     let a = getRandom();
     let b = getRandom();
     let c = getRandom();
+    let arr = [];
     if (a < 33) {
         a = '-';
     } else if (a >= 33 && a < 66) {
         a = '+';
     } else a = '*';
-    return `${b}${a}${c}`
-}
-const rules = (a) => {
-    return eval(a);
+    arr[0] = `${b}${a}${c}`;
+    arr[1] = eval(arr[0]);
+    return arr;
 }
 
 const description = () => {
-    console.log('What is the result of the expression?');
+    return 'What is the result of the expression?';
 }
-export const calcGames = wrapper(random, rules, description, engine);
+export const calcGames = engine(generate, description);
 

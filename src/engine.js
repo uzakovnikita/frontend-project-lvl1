@@ -1,7 +1,7 @@
-import { readlineSync } from '..'
-
+var readlineSync = require('readline-sync');
 
 export const engine = (random, description, counter = 0, nikname) => () => {
+
     if (counter == 0) {
         console.log('Welcome to the Brain Games!');
         console.log(description());
@@ -9,8 +9,11 @@ export const engine = (random, description, counter = 0, nikname) => () => {
         console.log(`Hello, ${nikname}!`);
     }
 
-    let answerTrue = random();
+    let generateResult = random();
+    let answerTrue = generateResult[1];
+    console.log(`Question: ${generateResult[0]}`);
     let answerUser = readlineSync.question('Your answer ')
+
     if (answerTrue == answerUser && counter < 2) {
         console.log('Correct!');
         counter += 1;
