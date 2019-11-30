@@ -1,5 +1,5 @@
 /* jshint ignore:start*/
-var readlineSync = require('readline-sync')
+import readlineSync from 'readline-sync';
 /* jshint ignore:end */
 export const engine = (random, description, counter = 0, nikname) => () => {
 
