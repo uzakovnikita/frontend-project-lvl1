@@ -5,7 +5,7 @@ export const engine = (random, description, counter = 0, nikname) => () => {
 
     if (counter == 0) {
         console.log('Welcome to the Brain Games!');
-        console.log(description());
+        console.log(description);
         nikname = readlineSync.question('May i have you name?');
         console.log(`Hello, ${nikname}!`);
     }

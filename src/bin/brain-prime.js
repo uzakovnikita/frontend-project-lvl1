@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-import { primeGames } from '../games/prime-game.js';
+import { default as primeGames } from '../games/prime-game.js';
 primeGames();

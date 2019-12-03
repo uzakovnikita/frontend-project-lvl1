@@ -1,11 +1,11 @@
-import { getRandom } from '../utils';
+import getRandom from '../utils';
 import { engine } from '../engine';
 
-export const getRandomTen = () => {
-    return Math.floor(Math.random() * 10);
-}
+// const getRandomTen = () => {
+//     return Math.floor(Math.random() * 10);
+// }
 
-const progression = (str) => {
+const progressionAnswer = (str) => {
     let arr = str.split(' ');
     let index = arr.indexOf('..');
     let d = 0;
@@ -21,19 +21,20 @@ const progression = (str) => {
 }
 
 const generate = () => {
-    let a = getRandom();
-    let d = getRandom();
+
+    let a = getRandom(0, 100);
+    let d = getRandom(0, 100);
     let arr = [];
 
     for (let i = 0; i < 10; i++) {
         if (i == 0) {
-            arr[i] = a + d;
+            arr[i] = a;
         }
-        else arr[i] = a + d + arr[i - 1];
+        else arr[i] = d + arr[i - 1];
     }
 
     let result = '';
-    let c = getRandomTen();
+    let c = getRandom(0, 9);
 
     for (let j = 0; j < 10; j++) {
         if (j == c) {
@@ -43,11 +44,10 @@ const generate = () => {
     }
 
     arr[0] = result;
-    arr[1] = progression(arr[0]);
+    arr[1] = progressionAnswer(arr[0]);
     return arr;
 }
 
-const description = () => {
-    return 'What number is missing in the progression?';
-}
-export const progressionGames = engine(generate, description);
+const description = 'What number is missing in the progression?';
+const progressionGames = engine(generate, description);
+export default progressionGames;

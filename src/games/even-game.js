@@ -1,4 +1,4 @@
-import { getRandom } from '../utils';
+import getRandom from '../utils';
 import { engine } from '../engine';
 
 export const isEven = (x) => {
@@ -7,9 +7,7 @@ export const isEven = (x) => {
     }
     return false;
 }
-const description = () => {
-    return 'Answer "yes" if the number is even, otherwise answer "no".'
-}
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generate = () => {
     let arr = [];
@@ -20,4 +18,5 @@ const generate = () => {
     return arr;
 }
 
-export const evenGames = engine(generate, description);
+const evenGames = engine(generate, description);
+export default evenGames;

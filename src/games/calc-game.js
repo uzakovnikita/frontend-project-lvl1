@@ -1,23 +1,43 @@
-import { getRandom } from '../utils';
+import getRandom from '../utils';
 import { engine } from '../engine.js';
 
+const minus = 33;
+const plus = 66;
+const multiplication = 99;
+
+const calc = (a, b, c) => {
+    switch (b) {
+        case '+':
+            return (+a) + (+c);
+            // eslint-disable-next-line no-unreachable
+            break;
+        case '-':
+            return (+a) - (+c);
+            // eslint-disable-next-line no-unreachable
+            break;
+        case '*':
+            return (+a) * (+c);
+            // eslint-disable-next-line no-unreachable
+            break;
+    }
+}
+
 const generate = () => {
-    let a = getRandom();
-    let b = getRandom();
-    let c = getRandom();
+    let operator = getRandom(0, 99);
+    let a = getRandom(0, 100);
+    let b = getRandom(0, 100);
     let arr = [];
-    if (a < 33) {
-        a = '-';
-    } else if (a >= 33 && a < 66) {
-        a = '+';
-    } else a = '*';
-    arr[0] = `${b}${a}${c}`;
-    arr[1] = eval(arr[0]);
+    if (operator < minus) {
+        operator = '-';
+    } else if (operator >= minus && operator < plus) {
+        operator = '+';
+    } else if (operator >= plus && operator < multiplication) operator = '*';
+    arr[0] = `${a}${operator}${b}`;
+    arr[1] = calc(a, operator, b);
     return arr;
 }
 
-const description = () => {
-    return 'What is the result of the expression?';
-}
-export const calcGames = engine(generate, description);
+const description = 'What is the result of the expression?';
+const calcGames = engine(generate, description);
+export default calcGames;
 
