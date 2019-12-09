@@ -10,13 +10,14 @@ export const isEven = (x) => {
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generate = () => {
-    let arr = [];
-    arr[0] = getRandom();
-    if (isEven(arr[0])) {
-        arr[1] = 'yes';
-    } else arr[1] = 'no';
-    return arr;
+    // let arr = [];
+    let result = new Map();
+    result.set(`question`, `${getRandom()}`)
+    // arr[0] = getRandom();
+    if (isEven(result.get(`question`))) {
+        result.set(`answerTrue`, `yes`);
+    } else result.set(`answerTrue`, `no`);
+    return result;
 }
 
-const evenGames = engine(generate, description);
-export default evenGames;
+export default () => engine(generate, description);

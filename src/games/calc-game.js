@@ -26,18 +26,21 @@ const generate = () => {
     let operator = getRandom(0, 99);
     let a = getRandom(0, 100);
     let b = getRandom(0, 100);
-    let arr = [];
+    // let arr = [];
     if (operator < minus) {
         operator = '-';
     } else if (operator >= minus && operator < plus) {
         operator = '+';
     } else if (operator >= plus && operator < multiplication) operator = '*';
-    arr[0] = `${a}${operator}${b}`;
-    arr[1] = calc(a, operator, b);
-    return arr;
+    const result = new Map();
+    result.set('question', `${a}${operator}${b}`);
+    result.set(`answerTrue`, `${calc(a, operator, b)}`);
+    // arr[0] = `${a}${operator}${b}`;
+    // arr[1] = calc(a, operator, b);
+    return result;
 }
 
 const description = 'What is the result of the expression?';
-const calcGames = engine(generate, description);
-export default calcGames;
+export default () => engine(generate, description);
+
 

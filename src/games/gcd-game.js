@@ -30,15 +30,17 @@ const gcd = (a, b) => {
 }
 
 const generate = () => {
-    let arr = [];
+    // let arr = [];
+    let result = new Map();
     let a = getRandom(0, 100);
     let b = getRandom(0, 100);
-    arr[0] = `${a} ${b}`;
-    arr[1] = gcd(a, b);
-    return arr;
+    result.set(`question`, `${a} ${b}`);
+    result.set(`answerTrue`, `${gcd(a, b)}`)
+    // arr[0] = `${a} ${b}`;
+    // arr[1] = gcd(a, b);
+    return result;
 }
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const gcdGames = engine(generate, description);
-export default gcdGames;     
+export default () => engine(generate, description);

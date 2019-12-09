@@ -24,6 +24,7 @@ const generate = () => {
 
     let a = getRandom(0, 100);
     let d = getRandom(0, 100);
+    const resultGlobal = new Map();
     let arr = [];
 
     for (let i = 0; i < 10; i++) {
@@ -42,12 +43,12 @@ const generate = () => {
         }
         else result += arr[j] + ` `;
     }
-
-    arr[0] = result;
-    arr[1] = progressionAnswer(arr[0]);
-    return arr;
+    resultGlobal.set(`question`, `${result}`);
+    resultGlobal.set(`answerTrue`, `${progressionAnswer(resultGlobal.get(`question`))}`)
+    // arr[0] = result;
+    // arr[1] = progressionAnswer(arr[0]);
+    return resultGlobal;
 }
 
 const description = 'What number is missing in the progression?';
-const progressionGames = engine(generate, description);
-export default progressionGames;
+export default () => engine(generate, description);
