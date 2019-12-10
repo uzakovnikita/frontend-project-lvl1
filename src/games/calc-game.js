@@ -1,5 +1,5 @@
 import getRandom from '../utils';
-import { engine } from '../engine.js';
+import engine from '../engine.js';
 
 const minus = 33;
 const plus = 66;
@@ -41,6 +41,6 @@ const generate = () => {
 }
 
 const description = 'What is the result of the expression?';
-export default () => engine(generate, description);
+export default () => engine(generate, description, 0);
 
 

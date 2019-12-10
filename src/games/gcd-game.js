@@ -1,5 +1,5 @@
 import getRandom from '../utils';
-import { engine } from '../engine';
+import engine from '../engine';
 
 // const searchOne = (str) => {
 //     let result = '';
@@ -43,4 +43,4 @@ const generate = () => {
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-export default () => engine(generate, description);
+export default () => engine(generate, description, 0);

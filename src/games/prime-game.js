@@ -1,5 +1,5 @@
 import getRandom from '../utils';
-import { engine } from '../engine';
+import engine from '../engine';
 
 const generate = () => {
     // let arr = [];
@@ -18,4 +18,4 @@ const isPrime = (x) => {
     return true;
 }
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
-export default () => engine(generate, description);
+export default () => engine(generate, description, 0);

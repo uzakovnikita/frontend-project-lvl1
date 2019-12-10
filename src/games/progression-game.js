@@ -1,5 +1,5 @@
 import getRandom from '../utils';
-import { engine } from '../engine';
+import engine from '../engine';
 
 // const getRandomTen = () => {
 //     return Math.floor(Math.random() * 10);
@@ -51,4 +51,4 @@ const generate = () => {
 }
 
 const description = 'What number is missing in the progression?';
-export default () => engine(generate, description);
+export default () => engine(generate, description, 0);

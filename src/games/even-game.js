@@ -1,5 +1,5 @@
 import getRandom from '../utils';
-import { engine } from '../engine';
+import engine from '../engine';
 
 export const isEven = (x) => {
     if (x % 2 === 0) {
@@ -20,4 +20,4 @@ const generate = () => {
     return result;
 }
 
-export default () => engine(generate, description);
+export default () => engine(generate, description, 0);
