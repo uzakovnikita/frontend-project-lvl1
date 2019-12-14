@@ -1,21 +1,26 @@
 import getRandom from '../utils';
 import engine from '../engine';
 
-const generate = () => {
-    // let arr = [];
-    // arr[0] = getRandom(0, 100);
-    let result = new Map();
-    result.set(`question`, `${getRandom(0, 100)}`)
-    if (isPrime(result.get(`question`))) {
-        result.set(`answerTrue`, `yes`);
-    } else result.set(`answerTrue`, `no`);
+const generateConditions = () => {
+    let result = [];
+    const question = `${getRandom(0, 100)}`;
+    let answerTrue = ''
+    if (isPrime(question)) {
+        answerTrue = 'yes';
+    } else {
+        answerTrue = 'no';
+    }
+    result = [question, answerTrue];
     return result;
 }
 const isPrime = (x) => {
+    if (x == 2) {
+        return true;
+    }
     for (let i = 2; i < 10; i++) {
         if (x % i === 0) return false;
     }
     return true;
 }
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
-export default () => engine(generate, description, 0);
+export default () => engine(generateConditions, description, 0);
