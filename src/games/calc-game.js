@@ -1,16 +1,6 @@
 import getRandom from '../utils';
 import engine from '../engine.js';
 
-const cons = (a, b) => (message) => {
-    switch (message) {
-        case `car`:
-            return a;
-        case `cdr`:
-            return b;
-    }
-}
-const car = (pair) => pair('car');
-const cdr = (pair) => pair('cdr');
 
 const calc = (a, b, c) => {
     switch (b) {
@@ -22,30 +12,21 @@ const calc = (a, b, c) => {
             return (+a) * (+c);
     }
 }
+const quantityOfOperators = 3;
+const largestNumber = 100;
 
 const generateConditions = () => {
-    let operator = getRandom(0, 2);
-    const a = getRandom(0, 100);
-    const b = getRandom(0, 100);
-    const minus = cons(0, `-`);
-    const plus = cons(1, '+');
-    const multiplication = cons(2, `*`);
+    const numberOfOperator = getRandom(0, quantityOfOperators - 1);
+    const firstNumber = getRandom(0, largestNumber);
+    const secondNumber = getRandom(0, largestNumber);
+    const minus = `-`;
+    const plus = `+`;
+    const multiplication = `*`;
     const listOfOperators = [minus, plus, multiplication];
-    switch (operator) {
-        case car(listOfOperators[0]):
-            operator = cdr(listOfOperators[0])
-            break;
-        case car(listOfOperators[1]):
-            operator = cdr(listOfOperators[1]);
-            break;
-        case car(listOfOperators[2]):
-            operator = cdr(listOfOperators[2]);
-            break;
-    }
-    let result = [];
-    const question = `${a}${operator}${b}`;
-    const answerTrue = `${calc(a, operator, b)}`;
-    result = [question, answerTrue];
+    const operator = listOfOperators[numberOfOperator];
+    const question = firstNumber.toString() + operator.toString() + secondNumber.toString();
+    const answerTrue = calc(firstNumber, operator, secondNumber);
+    const result = [question, answerTrue];
     return result;
 }
 

@@ -9,12 +9,11 @@ const searchGcd = (a, b) => {
 }
 
 const generateConditions = () => {
-    let result = [];
-    let a = getRandom(0, 100);
-    let b = getRandom(0, 100);
-    const question = `${a} ${b}`;
-    const answerTrue = `${searchGcd(a, b)}`;
-    result = [question, answerTrue];
+    const firstNumber = getRandom(0, 100);
+    const secondNumber = getRandom(0, 100);
+    const question = `${firstNumber} ${secondNumber}`;
+    const answerTrue = searchGcd(firstNumber, secondNumber).toString();
+    const result = [question, answerTrue];
     return result;
 }
 

@@ -1,8 +1,9 @@
 /* jshint ignore:start*/
 import readlineSync from 'readline-sync';
 /* jshint ignore:end */
+const numberOfRounds = 3;
 export default (generateConditions, description, nikname) => {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < numberOfRounds; i++) {
         if (i == 0) {
             console.log('Welcome to the Brain Games!');
             console.log(description);
@@ -14,13 +15,12 @@ export default (generateConditions, description, nikname) => {
         const answerTrue = conditions[1];
         console.log(`Question: ${question}`);
         const answerUser = readlineSync.question('Your answer ')
-        if (answerTrue == answerUser && i < 2) {
+        if (answerTrue == answerUser && i < numberOfRounds - 1) {
             console.log('Correct!');
         } else if (answerTrue != answerUser) {
             console.log(`${answerUser} is wrong answer ;(. Correct answer was ${answerTrue}.`)
-            break;
-        } else if (i == 2) {
-            console.log(`Congratulations, ${nikname}!`);
+            return;
         }
     }
+    console.log(`Congratulations, ${nikname}!`);
 }
