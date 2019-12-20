@@ -1,16 +1,14 @@
 import getRandom from '../utils';
 import engine from '../engine';
 
-export const isEven = (x) => {
-    return x % 2 ? false : true;
-}
+const isEven = (x) => (!(x % 2));
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateConditions = () => {
-    const question = getRandom(0, 1000);
-    const answerTrue = isEven(question) ? 'yes' : 'no';
-    const result = [question, answerTrue];
-    return result;
-}
+  const question = getRandom(0, 1000);
+  const trueAnswer = isEven(question) ? 'yes' : 'no';
+  const result = [question, trueAnswer];
+  return result;
+};
 
 export default () => engine(generateConditions, description);
