@@ -4,7 +4,7 @@ import getRandom from '../utils';
 const isPrime = (x) => {
   if (x === 2) {
     return true;
-  } if (x < 1) {
+  } if (x <= 1) {
     return false;
   }
   for (let i = 3; i < x / 2; i += 1) {
