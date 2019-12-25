@@ -1,7 +1,29 @@
 # frontend-project-lvl1
+  
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/5b5919c62623b98c0712/maintainability)](https://codeclimate.com/github/uzakovnikita/frontend-project-lvl1/maintainability)
 
 [![Build Status](https://travis-ci.org/uzakovnikita/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/uzakovnikita/frontend-project-lvl1)
+
+
+A set of mini-games includes: 
+1) **brain-gcd** - the search for the greatest common dividend
+2) **brain-progression** - the search for the missing member of the progression
+3) **brain-gcd** - guessing even or odd number
+4) **brain-prime** - guessing a simple or complicated number
+
+For **INSTALL** type the following commands after loading this repository from github
+    
+    
+    make install
+    
+    
+    make publish
+    
+    
+    npm link
+    
+    
 
 [![asciicast](https://asciinema.org/a/282667.svg)](https://asciinema.org/a/282667)
 [![asciicast](https://asciinema.org/a/282668.svg)](https://asciinema.org/a/282668)
