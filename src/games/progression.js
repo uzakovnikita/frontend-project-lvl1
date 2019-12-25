@@ -19,8 +19,8 @@ const generateConditions = () => {
   for (let j = 0; j < lengthOfProgression; j += 1) {
     if (j === hiddenMemberIndex) {
       question = `${question}.. `;
-    } 
-      question = `${question}${progression[j]} `;
+    }
+    question = `${question}${progression[j]} `;
   }
   question = question.trim();
   const trueAnswer = progression[hiddenMemberIndex];
